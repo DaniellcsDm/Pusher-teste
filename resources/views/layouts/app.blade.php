@@ -7,7 +7,15 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>
+        @if(Route::is('login'))
+            Pusher Login
+        @elseif(Route::is('register'))
+            Pusher Register
+        @elseif(Route::is('password.request'))
+            Pusher Reset Password
+        @endif
+    </title>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.bunny.net">
